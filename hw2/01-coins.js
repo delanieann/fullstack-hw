@@ -1,6 +1,32 @@
 /** Exercise 01 - Coins **/
 
 // Add your function here 
+function calculateChange(total) {
+    if (total <= 100) {
+        
+        cents = total * 100;
+
+        denominations = {
+            dollars: 100,
+            quarters: 25,
+            dimes: 10,
+            nickels: 5,
+            pennies: 1
+        };
+
+        results = {};
+
+        for (const [denom, value] of Object.entries(denominations)) {
+            results[denom] = Math.floor(cents/value);
+            cents = cents % value;
+        }
+
+        return results;
+    } else {
+        return "Amount is greater than $100. ";
+    }
+}
+
 
 // Sample test cases
 console.log(calculateChange(4.62));
